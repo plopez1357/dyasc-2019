@@ -18,11 +18,11 @@ public class FibonacciSuccession {
    }
    
    public int[] calculateFibonacciSuccession(int successionLength){
-	  int fibonacciSuccession[] = new int[successionLength];
+      int fibonacciSuccession[] = new int[successionLength];
 	  
       for(int i = 0; i < successionLength; i++){
-    	  fibonacciSuccession[i] = calculatePositionOfFibonacciSuccession(i);
-	  }
+          fibonacciSuccession[i] = calculatePositionOfFibonacciSuccession(i);
+      }
       return fibonacciSuccession;
    }
 }

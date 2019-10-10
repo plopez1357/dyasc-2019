@@ -3,14 +3,13 @@ package ar.edu.untref.dyasc;
 public class SpecificationHorizontalAndDirect implements TypeOfSpecification{
 	
 	@Override
-	public String generateSuccession(SuccessionGeneration formatSuccession) {
-		FibonacciSuccession fibonacci = new FibonacciSuccession();
+	public String generateSuccession(SuccessionGeneration successionGeneration) {
+		int successionLength = successionGeneration.getArraySuccession().length;
+		int[] arraySuccession = successionGeneration.getArraySuccession();
 		String resultSuccession = "";
-		int fibonacciSuccession[] = fibonacci.calculateFibonacciSuccession(formatSuccession.getSuccessionLength());
-		resultSuccession = "fibo<"+formatSuccession.getSuccessionLength()+">: ";
 		
-		for (int i = 0; i < formatSuccession.getSuccessionLength(); i++){
-		    resultSuccession += fibonacciSuccession[i]+" ";
+		for (int i = 0; i < successionLength; i++){
+		    resultSuccession += arraySuccession[i]+" ";
 	    }
 		return resultSuccession;
 	}

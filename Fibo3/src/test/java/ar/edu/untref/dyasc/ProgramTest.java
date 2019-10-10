@@ -54,12 +54,60 @@ public class ProgramTest{
 	}
 	
 	@org.junit.Test
-	public void validateErrorMoreTwoValues() {
+	public void validateOutputSumElements() {
 		Program program = new Program();
 		String succession[] = new String[3];
 		succession[0] ="-o=hi";
-		succession[1] ="2";
-		succession[2] ="7";
+		succession[1] ="-m=s";
+		succession[2] ="5";
+		String resultSuccession = program.showSucession(succession);
+		assertEquals("fibo<5>s: 7 ", resultSuccession);
+	}
+	
+	@org.junit.Test
+	public void validateOutputToFile() {
+		Program program = new Program();
+		String succession[] = new String[3];
+		succession[0] ="-o=vd";
+		succession[1] ="-f=salida.txt";
+		succession[2] ="5";
+		String resultSuccession = program.showSucession(succession);
+		assertEquals("fibo<5> guardado en salida.txt", resultSuccession);
+	}
+	
+	@org.junit.Test
+	public void validateOutputToFileWithSum() {
+		Program program = new Program();
+		String succession[] = new String[4];
+		succession[0] ="-o=vd";
+		succession[1] ="-f=salida.txt";
+		succession[2] ="-m=s";
+		succession[3] ="5";
+		String resultSuccession = program.showSucession(succession);
+		assertEquals("fibo<5> guardado en salida.txt", resultSuccession);
+	}
+	
+	@org.junit.Test
+	public void validateOutputToFileWithList() {
+		Program program = new Program();
+		String succession[] = new String[4];
+		succession[0] ="-o=hi";
+		succession[1] ="-f=salida.txt";
+		succession[2] ="-m=l";
+		succession[3] ="5";
+		String resultSuccession = program.showSucession(succession);
+		assertEquals("fibo<5> guardado en salida.txt", resultSuccession);
+	}
+	
+	@org.junit.Test
+	public void validateErrorMoreFourValues() {
+		Program program = new Program();
+		String succession[] = new String[5];
+		succession[0] ="-o=hi";
+		succession[1] ="-f=salida.txt";
+		succession[2] ="-m=s";
+		succession[3] ="5";
+		succession[4] ="7";
 		String resultSuccession = program.showSucession(succession);
 		assertEquals("Opciones no validas.", resultSuccession);
 	}
@@ -81,4 +129,5 @@ public class ProgramTest{
 		String resultSuccession = program.showSucession(succession);
 		assertEquals("Opciones no validas.", resultSuccession);
 	}
+	
 }

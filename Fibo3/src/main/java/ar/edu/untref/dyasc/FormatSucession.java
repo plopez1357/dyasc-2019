@@ -1,26 +1,47 @@
 package ar.edu.untref.dyasc;
 
 public class FormatSucession {
+	private int[] array;
+	private String succession;
 	
-	public String generateSuccessionWithSpecifications(String specification, int successionLength) {
-		SuccessionGeneration succession = new SuccessionGeneration(successionLength);
+	public void sumOfSuccessionElements(String specification, int[] arraySuccession){
+		succession = "fibo<"+arraySuccession.length+">: ";
+		SumOfTheSuccession sumOfSuccession = new SumOfTheSuccession();
+		array = sumOfSuccession.sumOfSuccessionElements(specification,arraySuccession); 
+	}
+	
+	public void generateSuccessionWithSpecifications(String specification) {
+		SuccessionGeneration succession = new SuccessionGeneration(array);
 		
 		if(specification.equals("hd") || specification.equals("")){
-			return succession.generateSuccession(new SpecificationHorizontalAndDirect());   
+			this.succession += succession.generateSuccession(new SpecificationHorizontalAndDirect());   
 	    }   
 		
 	    if(specification.equals("hi")){
-	        return succession.generateSuccession(new SpecificationHorizontalAndInverse());   
+	    	this.succession += succession.generateSuccession(new SpecificationHorizontalAndInverse());   
 	    }
 	    	
 	    if(specification.equals("vd")){
-			return succession.generateSuccession(new SpecificationVerticalAndDirect());
+	    	this.succession += succession.generateSuccession(new SpecificationVerticalAndDirect());
 		}
 		
 	    if(specification.equals("vi")){		
-			return succession.generateSuccession(new SpecificationVerticalAndInverse());
+	    	this.succession += succession.generateSuccession(new SpecificationVerticalAndInverse());
 		}
-	    
-		return "Opciones no validas.";
+	}
+	
+    public String writeToFile(String fileName){
+    	WriteToFile write = new WriteToFile();
+    	
+		return write.writeToFile(fileName, this.succession);
+		
+	}
+	
+	public int[] getArray() {
+		return array;
+	}
+
+	public String getSuccession() {
+		return succession;
 	}
 }

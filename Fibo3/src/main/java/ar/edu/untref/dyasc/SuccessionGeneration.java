@@ -1,22 +1,18 @@
 package ar.edu.untref.dyasc;
 
 public class SuccessionGeneration {
-	private int successionLength;
+	private int[] arraySuccession;
 	
-	public SuccessionGeneration(int successionLength) {
+	public SuccessionGeneration(int[] arraySuccession) {
 		super();
-		this.successionLength = successionLength;
+		this.arraySuccession = arraySuccession;
 	}
 	
 	public String generateSuccession(TypeOfSpecification typeOfSpecification) {
 		return typeOfSpecification.generateSuccession(this);
 	}
 
-	public int getSuccessionLength() {
-		return successionLength;
-	}
-
-	public void setSuccessionLength(int successionLength) {
-		this.successionLength = successionLength;
+	public int[] getArraySuccession() {
+		return arraySuccession;
 	}
 }
