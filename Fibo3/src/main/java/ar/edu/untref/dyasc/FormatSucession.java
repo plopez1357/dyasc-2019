@@ -2,12 +2,17 @@ package ar.edu.untref.dyasc;
 
 public class FormatSucession {
 	private int[] array;
-	private String succession;
+	private String succession = "";
+	private String successionLength = "";
 	
 	public void sumOfSuccessionElements(String specification, int[] arraySuccession){
-		succession = "fibo<"+arraySuccession.length+">: ";
+		this.successionLength = "fibo<"+arraySuccession.length+">";
 		SumOfTheSuccession sumOfSuccession = new SumOfTheSuccession();
-		array = sumOfSuccession.sumOfSuccessionElements(specification,arraySuccession); 
+		array = sumOfSuccession.sumOfSuccessionElements(specification,arraySuccession);
+		
+		if(array.length == 1){
+			this.succession += "s";
+		}
 	}
 	
 	public void generateSuccessionWithSpecifications(String specification) {
@@ -33,15 +38,8 @@ public class FormatSucession {
     public String writeToFile(String fileName){
     	WriteToFile write = new WriteToFile();
     	
-		return write.writeToFile(fileName, this.succession);
+		return this.successionLength + write.writeToFile(fileName, this.succession, this.successionLength);
 		
 	}
 	
-	public int[] getArray() {
-		return array;
-	}
-
-	public String getSuccession() {
-		return succession;
-	}
 }

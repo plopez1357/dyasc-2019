@@ -12,7 +12,7 @@ public class SuccessionGeneration {
 		return typeOfSpecification.generateSuccession(this);
 	}
 
-	public int[] getArraySuccession() {
+	public int[] getArraySuccession(){
 		return arraySuccession;
 	}
 }

@@ -6,9 +6,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class WriteToFile {
+public class WriteToFile{
 	
-	public String writeToFile(String fileName,String succession){
+	public String writeToFile(String fileName,String succession, String successionLength){
 	
 		if(fileName.contentEquals("")){
 			
@@ -24,7 +24,7 @@ public class WriteToFile {
 	            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 	            PrintWriter printWriter = new PrintWriter(bufferedWriter);  
 	            
-	            printWriter.println(succession); 
+	            printWriter.println(successionLength + "" + succession); 
 	            
 	            printWriter.close();
 	            bufferedWriter.close();
@@ -32,7 +32,7 @@ public class WriteToFile {
 	        }catch(IOException e){
 	        	return "Error en el archivo";
 	        }
-			return "guardado en "+fileName;
+			return " guardado en "+fileName;
 		}
 		
 	}

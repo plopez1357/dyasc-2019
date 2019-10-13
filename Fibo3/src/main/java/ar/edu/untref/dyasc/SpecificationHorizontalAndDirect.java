@@ -6,7 +6,7 @@ public class SpecificationHorizontalAndDirect implements TypeOfSpecification{
 	public String generateSuccession(SuccessionGeneration successionGeneration) {
 		int successionLength = successionGeneration.getArraySuccession().length;
 		int[] arraySuccession = successionGeneration.getArraySuccession();
-		String resultSuccession = "";
+		String resultSuccession = ": ";
 		
 		for (int i = 0; i < successionLength; i++){
 		    resultSuccession += arraySuccession[i]+" ";

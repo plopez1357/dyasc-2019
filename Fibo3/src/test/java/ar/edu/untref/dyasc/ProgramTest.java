@@ -65,6 +65,38 @@ public class ProgramTest{
 	}
 	
 	@org.junit.Test
+	public void sumElementsWithoutSpecification() {
+		Program program = new Program();
+		String succession[] = new String[2];
+		succession[0] ="-m=s";
+		succession[1] ="5";
+		String resultSuccession = program.showSucession(succession);
+		assertEquals("fibo<5>s: 7 ", resultSuccession);
+	}
+	
+	@org.junit.Test
+	public void sumElementsVertical() {
+		Program program = new Program();
+		String succession[] = new String[3];
+		succession[0] ="-o=vi";
+		succession[1] ="-m=s";
+		succession[2] ="5";
+		String resultSuccession = program.showSucession(succession);
+		assertEquals("fibo<5>s: \n7\n", resultSuccession);
+	}
+	
+	@org.junit.Test
+	public void validateOutputListElements() {
+		Program program = new Program();
+		String succession[] = new String[3];
+		succession[0] ="-o=hi";
+		succession[1] ="-m=l";
+		succession[2] ="5";
+		String resultSuccession = program.showSucession(succession);
+		assertEquals("fibo<5>: 3 2 1 1 0 ", resultSuccession);
+	}
+	
+	@org.junit.Test
 	public void validateOutputToFile() {
 		Program program = new Program();
 		String succession[] = new String[3];
@@ -76,15 +108,13 @@ public class ProgramTest{
 	}
 	
 	@org.junit.Test
-	public void validateOutputToFileWithSum() {
+	public void writeFileWithoutSpecifications() {
 		Program program = new Program();
-		String succession[] = new String[4];
-		succession[0] ="-o=vd";
-		succession[1] ="-f=salida.txt";
-		succession[2] ="-m=s";
-		succession[3] ="5";
+		String succession[] = new String[2];
+		succession[0] ="-f=prueba.txt";;
+		succession[1] ="5";
 		String resultSuccession = program.showSucession(succession);
-		assertEquals("fibo<5> guardado en salida.txt", resultSuccession);
+		assertEquals("fibo<5> guardado en prueba.txt", resultSuccession);
 	}
 	
 	@org.junit.Test
@@ -94,6 +124,18 @@ public class ProgramTest{
 		succession[0] ="-o=hi";
 		succession[1] ="-f=salida.txt";
 		succession[2] ="-m=l";
+		succession[3] ="5";
+		String resultSuccession = program.showSucession(succession);
+		assertEquals("fibo<5> guardado en salida.txt", resultSuccession);
+	}
+	
+	@org.junit.Test
+	public void validateOutputToFileWithSum() {
+		Program program = new Program();
+		String succession[] = new String[4];
+		succession[0] ="-o=vd";
+		succession[1] ="-f=salida.txt";
+		succession[2] ="-m=s";
 		succession[3] ="5";
 		String resultSuccession = program.showSucession(succession);
 		assertEquals("fibo<5> guardado en salida.txt", resultSuccession);
@@ -121,10 +163,39 @@ public class ProgramTest{
 	}
 	
 	@org.junit.Test
-	public void validateErrorInvalidSpecifications() {
+	public void validateErrorSpecificationsWithoutNumber() {
+		Program program = new Program();
+		String succession[] = new String[1];
+		succession[0] ="-o=xy";
+		String resultSuccession = program.showSucession(succession);
+		assertEquals("Opciones no validas.", resultSuccession);
+	}
+	
+	@org.junit.Test
+	public void validateErrorInvalidSpecificationsO() {
 		Program program = new Program();
 		String succession[] = new String[2];
 		succession[0] ="-o=xy";
+		succession[1] ="2";
+		String resultSuccession = program.showSucession(succession);
+		assertEquals("Opciones no validas.", resultSuccession);
+	}
+	
+	@org.junit.Test
+	public void validateErrorInvalidSpecificationsM() {
+		Program program = new Program();
+		String succession[] = new String[2];
+		succession[0] ="-m=h";
+		succession[1] ="2";
+		String resultSuccession = program.showSucession(succession);
+		assertEquals("Opciones no validas.", resultSuccession);
+	}
+	
+	@org.junit.Test
+	public void validateErrorInvalidSpecificationsF() {
+		Program program = new Program();
+		String succession[] = new String[2];
+		succession[0] ="-f=archivoError.test";
 		succession[1] ="2";
 		String resultSuccession = program.showSucession(succession);
 		assertEquals("Opciones no validas.", resultSuccession);
