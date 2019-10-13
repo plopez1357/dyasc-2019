@@ -1,6 +1,6 @@
 package ar.edu.untref.dyasc;
 
-public class SumOfTheSuccession{
+public class SumOfTheSuccession {
 	
 	public int[] sumOfSuccessionElements(String specification, int[] arraySuccession) {
 		if(specification.contentEquals("s")) {

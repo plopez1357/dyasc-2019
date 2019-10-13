@@ -41,5 +41,4 @@ public class FormatSucession {
 		return this.successionLength + write.writeToFile(fileName, this.succession, this.successionLength);
 		
 	}
-	
 }

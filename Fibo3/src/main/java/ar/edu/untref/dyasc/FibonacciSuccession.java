@@ -1,6 +1,6 @@
 package ar.edu.untref.dyasc;
 
-public class FibonacciSuccession { 
+public class FibonacciSuccession{ 
 
    private int calculatePositionOfFibonacciSuccession(int position){
 	   

@@ -2,6 +2,11 @@ package ar.edu.untref.dyasc;
 
 import static org.junit.Assert.*;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class ProgramTest{
 	
 	@org.junit.Test
@@ -103,8 +108,23 @@ public class ProgramTest{
 		succession[0] ="-o=vd";
 		succession[1] ="-f=salida.txt";
 		succession[2] ="5";
-		String resultSuccession = program.showSucession(succession);
-		assertEquals("fibo<5> guardado en salida.txt", resultSuccession);
+		String resultMessage = program.showSucession(succession);
+		assertEquals("fibo<5> guardado en salida.txt", resultMessage);
+		
+        StringBuilder resultSuccession = new StringBuilder();
+		
+		try (BufferedReader bufferedReader = Files.newBufferedReader(Paths.get("salida.txt"))) {
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+            	resultSuccession.append(line).append("\n");
+            }
+
+        } catch (IOException e) {
+            System.err.format("IOException: %s%n", e);
+        }
+		
+        assertEquals("fibo<5>: \n0\n1\n1\n2\n3\n\n", resultSuccession.toString());
 	}
 	
 	@org.junit.Test
@@ -113,8 +133,23 @@ public class ProgramTest{
 		String succession[] = new String[2];
 		succession[0] ="-f=prueba.txt";;
 		succession[1] ="5";
-		String resultSuccession = program.showSucession(succession);
-		assertEquals("fibo<5> guardado en prueba.txt", resultSuccession);
+		String resultMessage = program.showSucession(succession);
+		assertEquals("fibo<5> guardado en prueba.txt", resultMessage);
+		
+        StringBuilder resultSuccession = new StringBuilder();
+		
+		try (BufferedReader bufferedReader = Files.newBufferedReader(Paths.get("salida.txt"))) {
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+            	resultSuccession.append(line).append("\n");
+            }
+
+        } catch (IOException e) {
+            System.err.format("IOException: %s%n", e);
+        }
+	
+        assertEquals("fibo<5>: \n0\n1\n1\n2\n3\n\n", resultSuccession.toString());
 	}
 	
 	@org.junit.Test
@@ -125,8 +160,24 @@ public class ProgramTest{
 		succession[1] ="-f=salida.txt";
 		succession[2] ="-m=l";
 		succession[3] ="5";
-		String resultSuccession = program.showSucession(succession);
-		assertEquals("fibo<5> guardado en salida.txt", resultSuccession);
+		String resultMessage = program.showSucession(succession);
+		assertEquals("fibo<5> guardado en salida.txt", resultMessage);
+		
+        StringBuilder resultSuccession = new StringBuilder();
+		
+		try (BufferedReader bufferedReader = Files.newBufferedReader(Paths.get("salida.txt"))) {
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+            	resultSuccession.append(line).append("\n");
+            }
+
+        } catch (IOException e) {
+            System.err.format("IOException: %s%n", e);
+        }
+		
+        assertEquals("fibo<5>: 3 2 1 1 0 \n", resultSuccession.toString());
+	
 	}
 	
 	@org.junit.Test
@@ -137,8 +188,23 @@ public class ProgramTest{
 		succession[1] ="-f=salida.txt";
 		succession[2] ="-m=s";
 		succession[3] ="5";
-		String resultSuccession = program.showSucession(succession);
-		assertEquals("fibo<5> guardado en salida.txt", resultSuccession);
+		String resultMessage = program.showSucession(succession);
+		assertEquals("fibo<5> guardado en salida.txt", resultMessage);
+		
+		StringBuilder resultSuccession = new StringBuilder();
+		
+		try (BufferedReader bufferedReader = Files.newBufferedReader(Paths.get("salida.txt"))) {
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+            	resultSuccession.append(line).append("\n");
+            }
+
+        } catch (IOException e) {
+            System.err.format("IOException: %s%n", e);
+        }
+		
+        assertEquals("fibo<5>s: \n7\n\n", resultSuccession.toString());
 	}
 	
 	@org.junit.Test

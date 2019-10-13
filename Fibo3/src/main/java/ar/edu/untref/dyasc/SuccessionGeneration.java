@@ -1,6 +1,6 @@
 package ar.edu.untref.dyasc;
 
-public class SuccessionGeneration {
+public class SuccessionGeneration{
 	private int[] arraySuccession;
 	
 	public SuccessionGeneration(int[] arraySuccession) {
